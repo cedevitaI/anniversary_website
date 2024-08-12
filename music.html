@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommendations</title>
+    <link rel="icon" href="icons/favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+</head>
+<body class = "heart-pattern">
+    <div class="container">
+        <h1>Music Recommendations</h1>
+        <ul id="music-list" class="music-list"></ul>
+
+        <!-- <div class="spotify-embed">
+            <iframe src="https://open.spotify.com/playlist/5irowr0zKE7N8JbLKzloTw?si=a76b5fe687534717" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div> -->
+    </div>
+    <script>
+        const songs = [
+            { title: "Semaphore", link: "https://open.spotify.com/track/3luGUfPRtHFD53qjWoovg1?si=0766f8c27bd94c5e" },
+            { title: "Everything In Its Right Place", link: "https://open.spotify.com/track/2kRFrWaLWiKq48YYVdGcm8?si=b14f44e485e84dc3" },
+            { title: "Song Weird Fishes/Arpeggi", link: "https://open.spotify.com/track/2kRFrWaLWiKq48YYVdGcm8?si=3dc22a8b70654b94" },
+            { title: "IDEA 01", link: "https://open.spotify.com/track/1rv0JLczQyv4fWAxj7gXW7?si=f72295aeb8ed437d" },
+            { title: "Colossus", link: "https://open.spotify.com/track/4dT9ieu9LwGqst9CT29TCm?si=a87e6088ccc24f86" },
+            { title: "I Love You", link: "https://open.spotify.com/track/4N8idxy0W2GDaEosAwPOMg?si=141180c9e3e8403c" },
+            { title: "I Don't Belong", link: "https://open.spotify.com/track/4xCA8KYdeVe3AmTTEYJtVp?si=13ad763ed1584cdc" },
+            { title: "1992", link: "https://open.spotify.com/track/4N28QlYB0XW6H5gaXBHt6T?si=5942578376f24cba" },
+            { title: "Ethel", link: "https://open.spotify.com/track/2fEhqGeXcGiJs3WmqysJ8X?si=07af651dd0114e63" },
+            { title: "I Love You So", link: "https://open.spotify.com/track/4SqWKzw0CbA05TGszDgMlc?si=1ae2448bf7804ebe"},
+            { title: "Disintegration", link: "https://open.spotify.com/track/08Hncs1L3PYHpfsb8sYdmQ?si=32cd4864aca74f8e" },
+            { title: "Lovesong", link: "https://open.spotify.com/track/1y6XHeNN5DSX5PYy7gT0qL?si=e853d0127c784d41" },
+            { title: "Blind Youth Industrial Park", link: "https://open.spotify.com/track/2hx0DpiStjLroUEm0PJRpt?si=4a4b01d34ba748b7" },
+            { title: "A Boat to Drown", link: "https://open.spotify.com/track/0Fs3fNLgsHmKXfYpEZw3wn?si=47be9df81e6f47b1" },
+            { title: "Dan and Tim, Reunited by Fate", link: "https://open.spotify.com/track/4ymtL1e1zpOyZwbjhql62P?si=6c4de5505bab443a" },
+            { title: "Butter", link: "https://open.spotify.com/track/758mQT4zzlvBhy9PvNePwC?si=80bf956976e948eb" },
+            { title: "Seagirl", link: "https://open.spotify.com/track/7ssj7z5AP6V5O6Ooyeni60?si=7c0815b5e0c64854" },
+            { title: "Call Me", link: "https://open.spotify.com/track/3YmZ8V92nqVKx6u1lohFCC?si=13704c94d8394b36" },
+            { title: "After the Flash", link: "https://open.spotify.com/track/4eJ8NYk3p9lx5I0q9xt3rI?si=c90ba41b43664232" },
+            { title: "The Fragile", link: "https://open.spotify.com/track/0MKeZp4SppjBqwoprLxV5u?si=7a169fffc1634f02" },
+            { title: "Near DT, MI", link: "https://open.spotify.com/track/5jXzG56pDO74wRBG7GBoyf?si=53883ff7926f4ac0" }
+        ];
+
+        const musicList = document.getElementById('music-list');
+        songs.forEach(song => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = song.link;
+            a.textContent = song.title;
+            a.target = "_blank";
+            li.appendChild(a);
+            musicList.appendChild(li);
+        });
+    </script>
+</body>
+</html>

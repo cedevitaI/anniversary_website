@@ -1,0 +1,279 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f0;
+    /* background-size: contain; /* Adjust size to fit your design */
+    color: #66233a; /* Adjust text color for contrast */
+}
+
+.heart-pattern {
+    background-image: url('images/pngwing.com.png');
+    background-repeat: repeat;
+    background-size: 100px 100px; /* Adjust the size of the hearts as needed */
+  }
+
+/* .container {
+    background-color: rgba(255, 255, 255, 0.8);   
+    padding: 20px;
+    border-radius: 10px;
+} */
+
+.container {
+    max-width: 800px;
+    padding: 20px;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+} 
+
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5em;
+}
+
+.video-container {
+    margin-top: 20px;
+    height: 500px; /* Set the desired height for the video container */
+    display: flex; /* This ensures the iframe is centered vertically if needed */
+    justify-content: center; /* Centers the iframe horizontally */
+    align-items: center; /* Centers the iframe vertically */
+}
+/* nav bar */
+nav ul {
+    /* background-color: #ffffff54;  */
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    display: inline-block; /* Center the navigation bar */
+    margin: 0 auto;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 5px;
+    background-color: #ffd8f391;
+    padding: 8px 12px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive; /* 8-bit font */
+    color: #ff4081;
+    font-size: 0.9em;
+    display: block;
+}
+
+nav ul li a:hover {
+    color: #750027; 
+}
+
+
+.pictures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.picture-card{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow:  0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+}
+
+.pictures-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.picture-card p {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .pictures-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li a {
+        font-size: 1em;
+    }
+
+    .pictures-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.video-container iframe, #map {
+    width: 100%;
+    height: 100%;
+    max-width: 560px;
+    border: none;
+}
+
+.leaflet-popup-content img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: block;
+    margin: 0 auto;
+}
+
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.carousel img {
+    max-width: 80%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carousel p {
+    max-width: 80%;
+    margin: 0;
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Center the container and add styling */
+.list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    max-width: 80%; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Style the list */
+#place-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 10px;
+    width: 100%;
+}
+
+/* Style the list items */
+#place-list li {
+    margin: 10px 10px;
+}
+
+#place-list li a {
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    color: #750027;
+    font-size: 1em;
+    padding: 8px 15px;
+    /* background-color: rgba(255, 240, 245, 0.8); */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#place-list li a:hover {
+    color: #ff4081; /* Soft pink on hover */
+    background-color: #fffffff1; 
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    #place-list li a {
+        font-size: 0.8em; 
+        padding: 6px 12px;
+    }
+
+    .list-container {
+        max-width: 100%;
+        padding: 5px;
+    }
+}
+
+/*Music list*/
+
+.music-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.music-list li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: rgba(255, 240, 245, 0.8); /* Soft pink background */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.music-list li:before {
+    content: "\1F3B5";
+    font-size: 1.5em;
+    color: #ff4081; /* Icon color */
+}
+
+.music-list li a {
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    color: #750027;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.music-list li a:hover {
+    color: #ff4081;
+}
+
+.spotify-embed {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 320px; 
+    text-align: center;
+}
+
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Places We've Been</title>
+    <link rel="icon" href="icons/map_favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body class="heart-pattern">
+    <div class="container">
+        <h1>Places We've Been</h1>
+        <div id="map" style="height: 400px; width: 100%;"></div>
+    </div>
+    <div id = "list-container">
+        <ul id="place-list">
+            <li><a href="#" data-lat="42.002802" data-lng="21.423079">Where we met - Gradski Park</a></li>
+            <li><a href="#" data-lat="52.4920177" data-lng="13.3885485">Clash - Berlin</a></li>
+            <li><a href="#" data-lat="52.50692" data-lng="13.4691">Ostkreuz - Berlin</a></li>
+            <li><a href="#" data-lat="52.52210" data-lng="13.39415">Bode Museum - Berlin</a></li>
+            <li><a href="#" data-lat="52.52437" data-lng="13.41053">East Side Galery - Berlin</a></li>
+            <li><a href="#" data-lat="51.78952" data-lng="11.14174">Quedlinburg</a></li>
+            <li><a href="#" data-lat="41.99701" data-lng="21.42416">Valentine's Day</a></li>
+            <li><a href="#" data-lat="52.54536" data-lng="13.40438">IDLES - Berlin</a></li>
+            <li><a href="#" data-lat="52.488224" data-lng="13.379823">Viktoriapark - Berlin</a></li>
+            <li><a href="#" data-lat="44.8105885" data-lng="20.4660344">Belgrade</a></li>
+            <li><a href="#" data-lat="45.2606628" data-lng="19.8321612">Novi Sad</a></li>
+            <li><a href="#" data-lat="41.219601" data-lng="22.704201">Dojran</a></li>
+            <li><a href="#" data-lat="41.03754" data-lng="20.80582">Eleshec</a></li>
+        </ul>
+    </div>
+    <script>
+        // Initialize the map and set view
+        const map = L.map('map').setView([42.002802, 21.423079], 15);
+
+        // Load and display tile layers on the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Array of locations with images
+        const locations = [
+            { lat: 42.002802, lng: 21.423079, description: "Where we met - Gradski Park", image: "images/photos/IMG_2694.JPEG" },
+            { lat: 41.219601, lng: 22.704201, description: "Dojran", image: "images/photos/IMG_7574.JPEG" },
+            { lat: 41.03754, lng: 20.80582, description: "Eleshec", image: "images/photos/IMG_7601.JPEG" },
+            { lat: 44.8105885, lng: 20.4660344, description: "Belgrade", image: "images/photos/IMG_2413.JPEG"},
+            { lat: 45.2606628, lng: 19.8321612, description: "Novi Sad", image: "images/photos/IMG_2504.JPEG"},
+            { lat: 52.4920177, lng: 13.3885485, description: "Clash - Berlin", image: "images/photos/IMG_4424.JPEG"},
+            { lat: 52.50692, lng: 13.4691, description: "Ostkreuz - Berlin", image: "images/photos/IMG_4480.JPEG"},
+            { lat: 51.78952, lng: 11.14174, description: "Quedlinburg", image: "images/photos/IMG_1081.JPEG"},
+            { lat: 52.52210, lng: 13.39415, description: "Bode Museum - Berlin", image: "images/photos/IMG_4980.JPEG"},
+            { lat: 52.52437, lng: 13.41053, description: "East Side Galery - Berlin", image: "images/photos/IMG_1327.JPEG"},
+            { lat: 41.99701, lng: 21.42416, description: "Valentine's Day", image: "images/photos/IMG_1734.JPEG"},
+            { lat: 52.54536, lng: 13.40438, description: "IDLES - Berlin", image: "images/photos/IMG_6271.JPEG"},
+            { lat: 52.488224, lng: 13.379823, description: "Viktoriapark - Berlin", image: "images/photos/IMG_6450.JPEG"},
+        ];
+
+        // Add markers with popups
+        const markers = {};
+        // let skopjeMarker;
+        locations.forEach(location => {
+            const marker = L.marker([location.lat, location.lng])
+                .addTo(map)
+                .bindPopup(`
+                    <b>${location.description}</b><br>
+                    <img src="${location.image}" alt="${location.description}" style="width:100%;height:auto;border-radius:8px;">
+                `);
+            // if (location.description === "Skopje"){
+            //     skopjeMarker = marker;
+            // }
+            markers[location.description] = marker;    
+        });
+
+        document.querySelectorAll('#place-list a').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const lat = this.getAttribute('data-lat');
+                const lng = this.getAttribute('data-lng');
+                const marker = markers[this.textContent];
+
+                if (marker) {
+                    map.setView([lat, lng], 15); // Pan to the location
+                    marker.openPopup(); // Open the marker's popup
+                }
+            });
+        });
+
+
+        markers["Where we met - Gradski Park"].openPopup();
+    </script>
+</body>
+</html>
